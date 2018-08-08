@@ -15,6 +15,17 @@ Page({
    date:'',
    region: ['广东省', '广州市', '海珠区'],
    customItem: '全部',
+   imgUrls: [
+     'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+     'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+     'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+   ],
+   indicatorDots: true,
+   autoplay: true,
+   interval: 5000,
+   duration: 1000,
+   color: "orange",
+   coloractive: "#fff",
  },
 
   /**
@@ -22,16 +33,27 @@ Page({
    */
   onLoad: function (options) {
     //加定位
-    this.getLocation();
-    this.getQQmsg();
-    this.getLan();
+    //this.getLocation();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.authorize({
+      scope: 'scope.record',
+      success() {
+        // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+        wx.startRecord()
+      }
+    })
+    wx.getSetting({
+      success(res) {
+        console.log(res)
+        if (!res.authSetting['scope.record']) {
+        }
+      }
+    })
   },
 
   /**
@@ -59,27 +81,7 @@ Page({
   },
   //生命周期函数
   onShow:function(){
-    //监听摇一摇
-    wx.onAccelerometerChange(function (res) {
-      if (res.x > 0.8 && res.y > 0.8) {
-        //播放音频
-        //音频播放完毕后展示成功结果
-        let qa=['真心话','大冒险','去哪里嫖','亲一个女生','亲一个男生','认识一个异性','想你女朋友吗','回来吧','恭喜你','哈哈哈']
-        let idx=Math.floor(Math.random()*9+1);
-       
-        wx.playVoice({
-          filePath: '../assets/yaoyiyao.mp3',
-          complete: function () {
-            console.log(6666, '检测用户是执行该操作是否成功')
-            //音频播放完毕后展示成功结果
-            wx.showToast({
-              title: qa[idx],
-              duration: 5000
-            })
-          }
-        })
-      }
-    })
+   
   },
 
   /**

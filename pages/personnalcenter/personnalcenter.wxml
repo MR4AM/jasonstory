@@ -1,0 +1,21 @@
+<view class="personnal">
+    <!-- 头部信息 -->
+   <view class="userinfo">
+      <view>
+         <image bindtap="chooseimage" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+      </view>
+  </view>
+     <view class="section">
+       <p class="userinfo-nickname">欢迎你{{nickName}}</p> 
+      <picker mode="date" value="{{date}}" start="1900-01-01" end="2099-09-01"    bindchange="bindDateChange">
+        <view class="input">
+          <input placeholder="点击你的生日"  value="{{date}}"/>
+        </view>
+      </picker>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="input">
+          <input placeholder="点击选择你的城市"  value="{{region[0]}}-{{region[1]}}-{{region[2]}}"/>
+        </view>
+      </picker>
+    </view>
+</view>

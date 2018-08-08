@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/switchcity/switchcity"
+    "pages/switchcity/switchcity",
+    "pages/trueorfalse/trueorfalse",
+    "pages/personnalcenter/personnalcenter"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#689F38",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "童年乐园",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -14,14 +16,19 @@
     "backgroundColor": "#689F38",
     "color": "#DCEDC8",
     "selectedColor": "#DCEDC8",
+    "fontSize":"24px",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
-        "text": "这是一个测试tab"
+        "pagePath": "pages/trueorfalse/trueorfalse",
+        "text": "真心话大冒险"
+      },
+      {
+        "pagePath":"pages/personnalcenter/personnalcenter",
+        "text":"个人中心"
       }
     ]
   }
