@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="index">
+    <text>你所在的城市</text>
+    <navigator class="location" url="../switchcity/switchcity" >{{location}}{{county}}</navigator>
+    <view class="section">
+    <picker mode="date" value="{{date}}" start="1900-01-01" end="2099-09-01" bindchange="bindDateChange">
+      <view class="input">
+        <input placeholder="点击选择日期" auto-focus value="{{date}}"/>
+      </view>
+    </picker>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="input">
+        <input placeholder="点击选择收货地址" auto-focus value="{{region[0]}}-{{region[1]}}-{{region[2]}}"/>
+      </view>
+    </picker>
+  </view>
+
+</view>
+
