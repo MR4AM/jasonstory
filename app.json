@@ -8,7 +8,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#689F38",
-    "navigationBarTitleText": "童年乐园",
+    "navigationBarTitleText": "聚会爱玩啥",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -24,7 +24,7 @@
       },
       {
         "pagePath": "pages/trueorfalse/trueorfalse",
-        "text": "真心话大冒险"
+        "text": "游戏中心"
       },
       {
         "pagePath":"pages/personnalcenter/personnalcenter",

@@ -25,7 +25,7 @@ App({
     }
   },
   globalData:{
-    defaultCity: 'A市',
-    defaultCounty: 'B区'
+    defaultCity: 'aa',
+    defaultCounty: 'bb'
   }
 })

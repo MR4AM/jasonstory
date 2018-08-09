@@ -1,7 +1,5 @@
 <!--index.wxml-->
 <view class="index">
-    <text>你所在的城市</text>
-    <navigator class="location" url="../switchcity/switchcity" >{{location}}{{county}}      </navigator>
     <view class='swiper'>
     <swiper 
       indicator-dots="{{indicatorDots}}"
@@ -19,7 +17,10 @@
       </block>
   </swiper>
   </view>
-   
+  <view class='info'>
+    <text>你所在的城市</text>
+    <navigator class="location" url="../switchcity/switchcity" >{{location}}{{county}}              </navigator>
+  </view>
 
 </view>
 

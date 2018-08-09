@@ -33,7 +33,7 @@ Page({
    */
   onLoad: function (options) {
     //加定位
-    //this.getLocation();
+    this.getLocation();
   },
 
   /**
@@ -60,10 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-          location: appInstance.globalData.defaultCity,
-          county: appInstance.globalData.defaultCounty
-        })
+    
   },
 
   /**
@@ -137,12 +134,14 @@ Page({
           success: res => {
             console.log(res)
             that.getWeather(res.data.result.ad_info.city)
+            appInstance.globalData.defaultCity = res.data.result.ad_info.city;
+            appInstance.globalData.defaultCounty = res.data.result.ad_info.district
             // console.log(res.data.result.ad_info.city+res.data.result.ad_info.adcode);
-            that.setData({
-              location: res.data.result.ad_info.city,
-              currentCityCode: res.data.result.ad_info.adcode,
-              county: res.data.result.ad_info.district
-            })
+            // that.setData({
+            //   location: appInstance.globalData.defaultCity,
+            //   currentCityCode: res.data.result.ad_info.adcode,
+            //   county: appInstance.globalData.defaultCounty
+            // })
           },
           fail:res=>{
             alert('定位失败，请打开你手机的定位功能')

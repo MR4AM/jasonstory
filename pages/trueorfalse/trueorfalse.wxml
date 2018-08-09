@@ -1,1 +1,10 @@
-<view>真心话大冒险</view>
+<view class="trueorfalse">
+  <button bindtap="trueorfalse" data-w='words'  wx:if="{{!shakestate}}">真心话</button>
+  <button bindtap="trueorfalse" data-w='renger'   wx:if="{{!shakestate}}">大冒险</button>
+</view>
+<view class="mask"   wx:if="{{shakestate}}"></view>
+<view class="modal fadeIn"  wx:if="{{shakestate}}">
+    <image src="../../images/shake.jpg"></image>
+    <rich-text>{{title ||'6666'}}</rich-text>
+    <button bindtap='changestate'>继续游戏</button>
+</view>
