@@ -17,6 +17,7 @@ Page({
     customItem: '全部',
     avatarUrl:'',
     nickName:'',
+    msg:['头像','昵称','生日','所属地区']
   },
 
   /**

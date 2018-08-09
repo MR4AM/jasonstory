@@ -26,7 +26,12 @@ Page({
    duration: 1000,
    color: "orange",
    coloractive: "#fff",
+   avatarUrl:'',
+   weaherArr:[],
+   videosrc:'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
+   news: ['狼人杀', '真心话大冒险', '谁是卧底', '大话骰']
  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -34,6 +39,7 @@ Page({
   onLoad: function (options) {
     //加定位
     this.getLocation();
+    this.getuserInfo();
   },
 
   /**
@@ -137,11 +143,11 @@ Page({
             appInstance.globalData.defaultCity = res.data.result.ad_info.city;
             appInstance.globalData.defaultCounty = res.data.result.ad_info.district
             // console.log(res.data.result.ad_info.city+res.data.result.ad_info.adcode);
-            // that.setData({
-            //   location: appInstance.globalData.defaultCity,
-            //   currentCityCode: res.data.result.ad_info.adcode,
-            //   county: appInstance.globalData.defaultCounty
-            // })
+            that.setData({
+              location: appInstance.globalData.defaultCity,
+              currentCityCode: res.data.result.ad_info.adcode,
+              county: appInstance.globalData.defaultCounty
+            })
           },
           fail:res=>{
             alert('定位失败，请打开你手机的定位功能')
@@ -152,11 +158,15 @@ Page({
   },
   //获取对应城市天气
   getWeather:function(city){
+    let that=this;
     wx.request({
       data:{city:city},
       url: 'http://wthrcdn.etouch.cn/weather_mini',
       success:(res)=>{
-        console.log(res,'检查res')
+        that.setData({
+          weatherArr: res.data.data.forecast,
+        })
+        console.log(res.data.data.forecast,'检查res')
       }
     })
   },
@@ -177,6 +187,33 @@ Page({
       url:`http://www.youdao.com/smartresult-xml/search.s?jsFlag=true&type=mobile&q=${q}`,
       success:(res)=>{
         console.log(res,'检测翻译接口返回信息')
+      }
+    })
+  },
+  //获取用户信息
+  getuserInfo: function () {
+    let that = this;
+    wx.getUserInfo({
+      success: (res) => {
+        that.setData({
+          avatarUrl: res.userInfo.avatarUrl,
+          nickName: res.userInfo.nickName
+        })
+        console.log(res)
+      }
+    })
+  },
+  //播放视频
+  bindButtonTap: function () {
+    var that = this
+    wx.chooseVideo({
+      sourceType: ['album', 'camera'],
+      maxDuration: 60,
+      camera: ['front', 'back'],
+      success: function (res) {
+        that.setData({
+          src: res.tempFilePath
+        })
       }
     })
   },

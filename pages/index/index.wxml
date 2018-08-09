@@ -18,8 +18,38 @@
   </swiper>
   </view>
   <view class='info'>
-    <text>你所在的城市</text>
-    <navigator class="location" url="../switchcity/switchcity" >{{location}}{{county}}              </navigator>
+        <view class='usertab'>
+            <image bindtap="chooseimage" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+             <navigator class="location" url="../switchcity/switchcity" >
+             {{location}}{{county}}
+              <swiper 
+                  autoplay="{{autoplay}}" 
+                  interval="{{interval}}" 
+                  duration="{{duration}}"
+                  circular=true
+                  vertical=true
+                  class='weathersw'
+                  >
+                  <block wx:for="{{weatherArr}}"  wx:key="userInfoListId">
+                    <swiper-item>
+                      {{item.date}}
+                      <view>{{item.high}},{{item.low}},{{item.type}}</view>
+                    </swiper-item>
+                  </block>
+              </swiper>                     
+             </navigator>
+        </view>
+  </view>
+  <view class='gamenews'>
+      <view class='title'>游戏资讯</view>
+      <block wx:for="{{news}}">
+        <view class='list'>
+           {{item}}
+        </view>
+      </block>
+  </view>
+  <view class='video'>
+       <video id="myVideo" src="{{videosrc}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
   </view>
 
 </view>

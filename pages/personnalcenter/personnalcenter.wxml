@@ -1,21 +1,28 @@
 <view class="personnal">
-    <!-- 头部信息 -->
-   <view class="userinfo">
-      <view>
-         <image bindtap="chooseimage" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+      <view class='list'>
+          <view>
+            头像 
+            <image bindtap="chooseimage" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+          </view>
       </view>
-  </view>
-     <view class="section">
-       <p class="userinfo-nickname">欢迎你{{nickName}}</p> 
+       <view class='list'>
+            昵称 
+            <p class="userinfo-nickname">{{nickName}}</p> 
+      </view>
+      <view class='list'>
+            生日 
       <picker mode="date" value="{{date}}" start="1900-01-01" end="2099-09-01"    bindchange="bindDateChange">
-        <view class="input">
-          <input placeholder="点击你的生日"  value="{{date}}"/>
+        <view class="aa">
+          {{date || '2018-06-01'}}
         </view>
       </picker>
+      </view>
+       <view class='list'>
+            所属地区 
       <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-        <view class="input">
-          <input placeholder="点击选择你的城市"  value="{{region[0]}}-{{region[1]}}-{{region[2]}}"/>
+        <view class="cc">
+          {{region[0]}}-{{region[1]}}-{{region[2]}}
         </view>
       </picker>
-    </view>
+      </view>
 </view>

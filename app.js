@@ -25,7 +25,7 @@ App({
     }
   },
   globalData:{
-    defaultCity: 'aa',
+    defaultCity: '正在定位...',
     defaultCounty: 'bb'
   }
 })
