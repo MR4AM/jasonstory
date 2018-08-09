@@ -1,8 +1,4 @@
 // index.js
-const appInstance = getApp();
-const city = require('../../utils/city.js');
-const cityObjs = require('../../utils/city.js');
-const config = require('../../utils/config.js');
 
 Page({
 
@@ -10,11 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    location: appInstance.globalData.defaultCity,
-    county: appInstance.globalData.defaultCounty,
-    date: '',
-    region: ['广东省', '广州市', '海珠区'],
-    customItem: '全部',
+   
   },
 
   /**
@@ -33,12 +25,6 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    this.setData({
-      location: appInstance.globalData.defaultCity,
-      county: appInstance.globalData.defaultCounty
-    })
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -93,7 +79,7 @@ Page({
          complete: function () {
            console.log(6666, '检测用户是执行该操作是否成功')
            //音频播放完毕后展示成功结果
-           wx.showModal({
+           wx.showToast({
              title: qa[idx],
              duration: 5000
            })
