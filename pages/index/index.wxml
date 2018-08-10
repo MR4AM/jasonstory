@@ -41,7 +41,7 @@
         </view>
   </view>
   <view class='gamenews'>
-      <view class='title'>游戏资讯</view>
+      <view class='title'>游戏介绍</view>
       <block wx:for="{{news}}">
         <view class='list'>
            {{item}}
@@ -50,6 +50,9 @@
   </view>
   <view class='video'>
        <video id="myVideo" src="{{videosrc}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+  </view>
+  <view class='footer'>
+     ————已经到达底部，没有更多了—————
   </view>
 
 </view>

@@ -1,0 +1,4 @@
+<view class="fakedice">
+    <view class='start' bindtap='createDice'>点击开始摇骰子</view>
+    <view wx:for="{{diceArr}}" class='dice'>{{item}}</view>
+</view>

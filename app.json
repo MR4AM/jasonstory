@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/switchcity/switchcity",
     "pages/trueorfalse/trueorfalse",
-    "pages/personnalcenter/personnalcenter"
+    "pages/personnalcenter/personnalcenter",
+    "pages/fakedice/fakedice",
+    "pages/gamecenter/gamecenter"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,7 +25,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/trueorfalse/trueorfalse",
+        "pagePath": "pages/gamecenter/gamecenter",
         "text": "游戏中心"
       },
       {
