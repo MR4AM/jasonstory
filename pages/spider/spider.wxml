@@ -1,0 +1,8 @@
+<view class="spider">
+    <view>请选择游戏模式</view>
+    <button>由题库出题</button>
+    <button>自主出题</button>
+    <view class="section">
+      <input placeholder="请输入玩家人数" auto-focus type="number"/>
+    </view>
+</view>

@@ -5,7 +5,8 @@
     "pages/trueorfalse/trueorfalse",
     "pages/personnalcenter/personnalcenter",
     "pages/fakedice/fakedice",
-    "pages/gamecenter/gamecenter"
+    "pages/gamecenter/gamecenter",
+    "pages/spider/spider"
   ],
   "window": {
     "backgroundTextStyle": "light",
