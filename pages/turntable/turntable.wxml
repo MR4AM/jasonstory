@@ -1,0 +1,6 @@
+<view class="turnplate_page">
+    <view class='start'></view>
+    <view class="turnplate">
+      <canvas canvas-id="turnplate_canvas"></canvas>
+    </view>
+</view>

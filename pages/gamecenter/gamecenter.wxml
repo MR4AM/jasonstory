@@ -3,4 +3,6 @@
      <button bindtap='linkTo' data-url='../trueorfalse/trueorfalse'>真心话大冒险</button>
      <button bindtap='linkTo' data-url='../fakedice/fakedice'>大话骰</button>
      <button bindtap='linkTo' data-url='../spider/spider'>谁是卧底</button>
+     <button bindtap='linkTo' data-url='../luckturn/luckturn'>抽奖九宫格</button>
+     <button bindtap='linkTo' data-url='../turntable/turntable'>幸运大轮盘</button>
  </view>
