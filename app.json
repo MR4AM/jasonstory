@@ -5,7 +5,9 @@
     "pages/trueorfalse/trueorfalse",
     "pages/personnalcenter/personnalcenter",
     "pages/fakedice/fakedice",
-    "pages/gamecenter/gamecenter"
+    "pages/gamecenter/gamecenter",
+    "pages/luckturn/luckturn",
+    "pages/turntable/turntable"
   ],
   "window": {
     "backgroundTextStyle": "light",
