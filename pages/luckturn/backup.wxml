@@ -1,0 +1,13 @@
+<view id="container">
+  <view wx:for="{{turnData}}" wx:key="{{item.idx}}">
+    <view id="li" class='{{amplification_index == item.idx ? "indexli":""}}' data-aa='{{item.idx}}' data-b='{{amplification_index}}'>
+        {{item.title}}
+    <view></view>
+    </view>
+  </view>
+  <!--开始-->
+  <a bindtap="startrolling">
+    开始抽奖
+  </a>
+  <p id="pp"></p>
+</view>

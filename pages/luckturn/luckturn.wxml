@@ -1,47 +1,18 @@
 <view id="container">
-  <!--左上-->
-  <view id="li" class='{{amplification_index===1?"indexli":""}}'>
-    一等奖
+  <view wx:for="{{turnData}}" wx:key="{{item.idx}}">
+    <view id="li" class='{{amplification_index == item.idx ? "indexli":""}}' data-aa='{{item.idx}}' data-b='{{amplification_index}}'>
     <view></view>
-  </view>
-  <!--上-->
-  <view id="li" class='{{amplification_index===2?"indexli":""}}'>
-    二等奖
-    <view></view>
-  </view>
-  <!--右上-->
-  <view id="li" class='{{amplification_index===3?"indexli":""}}'>
-    三等奖
-    <view></view>
-  </view>
-  <!--左-->
-  <view id="li" class='{{amplification_index===8?"indexli":""}}'>
-    八等奖
-    <view></view>
+    </view>
   </view>
   <!--开始-->
   <a bindtap="startrolling">
-    开始抽奖
+    开始抽取角色
   </a>
-  <!--右-->
-  <view id="li" class='{{amplification_index===4?"indexli":""}}'>
-    四等奖
-    <view></view>
-  </view>
-  <!--左下-->
-  <view id="li" class='{{amplification_index===7?"indexli":""}}'>
-    七等奖
-    <view></view>
-  </view>
-  <!--下-->
-  <view id="li" class='{{amplification_index===6?"indexli":""}}'>
-    六等奖
-    <view></view>
-  </view>
-  <!--右下-->
-  <view id="li" class='{{amplification_index===5?"indexli":""}}'>
-    五等奖
-    <view></view>
-  </view>
   <p id="pp"></p>
+  <view class="mask"   wx:if="{{maskstate}}"></view>
+  <view class="modal fadeIn"  wx:if="{{maskstate}}">
+      <image src="../../images/shake.jpg"></image>
+      <rich-text>你抽中的是{{turnData[amplification_index].title}}</rich-text>
+      <button bindtap='changestate'>继续抽取角色</button>
+  </view>
 </view>

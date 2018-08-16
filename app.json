@@ -6,12 +6,9 @@
     "pages/personnalcenter/personnalcenter",
     "pages/fakedice/fakedice",
     "pages/gamecenter/gamecenter",
-<<<<<<< HEAD
-    "pages/spider/spider"
-=======
+    "pages/spider/spider",
     "pages/luckturn/luckturn",
     "pages/turntable/turntable"
->>>>>>> 5e6ddfbdc4632cf42c36dbb3b6f35af260c7d11e
   ],
   "window": {
     "backgroundTextStyle": "light",
