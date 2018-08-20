@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <title>Gauge Demo</title>
+    <style>
+      body {
+        /* background-color: #2a2d31; */
+      }
+      .cavanns{
+        position: relative;
+      }
+      #gauge1,
+      #gauge2 {
+        background-color: #2a2d31;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .point{
+        width: 80%;
+        height: 1%;
+        /* //将定位的指针一半隐藏 */
+        background: -webkit-linear-gradient(right,transparent 50%,  #0e83f5 50%);
+        background: -ms-linear-gradient(right, #0e83f5 0%,  transparent 60%);
+        background: -moz-linear-gradient(right, #0e83f5 0%,  transparent 60%);
+        background: linear-gradient(right, #0e83f5 0%,  transparent 60%);
+      
+      position: absolute;
+        top:50%;
+        left:10%;
+        transition: linear all 2s;
+        animation: loading-rotate 2s linear;
+        transform:rotateZ(115deg);
+      }
+      @-webkit-keyframes loading-rotate {
+            from {
+                -webkit-transform: rotateZ(0deg);
+            }
+            to {
+                -webkit-transform: rotateZ(115deg);
+            }
+        }
+
+        @keyframes loading-rotate {
+            from {
+                transform: rotateZ(0deg);
+            }
+            to {
+                transform: rotateZ(115deg);
+            }
+        }
+    </style>
+</head>
+<body>
+  <!-- <div style="height:20px;background: linear-gradient(to right, #9ED110, #50B517, #8adec2, #08d9fb, #9f49ac, #f10cab, #FF3BA7, #FF5800, #FF8100, #FEAC00, #FFCC00, #EDE604)"></div> -->
+  <div class="cavanns">
+    <canvas width=510 height=510 id="gauge1"></canvas>
+    <div class="point" style="transform:translateZ(-65deg)"></div>
+  </div>
+  <!-- <canvas width=510 height=510 id="gauge2"></canvas> -->
+  <script src="./gauge.js"></script>
+  <script>
+    var my_canvas_obj1= document.getElementById("gauge1");
+    var gauge1 = new Gauge({
+      "tick_length": 12,
+      "large_tick_length": 22,
+      "tick_thickness": 1,
+      "tick_group_length": 9,
+      "ticks_groups_begin": 0,
+      "total_degrees": 180,
+      "total_tick": 101,
+      "tick_color": "#666",
+      "num_font_size": 18,
+      "percent": 0,
+      "center_font_size": 172,
+      "circle_radius":10,
+      "show_num": true,
+      //"bg_color":"#fff",
+      on_color_gradient: [
+        {
+          color: "#9ED110",
+          percent: 0
+        },
+        {
+          color: "#50B517",
+          percent: 10
+        },
+        {
+          color: "#8adec2",
+          percent: 20
+        },
+        {
+          color: "#08d9fb",
+          percent: 40
+        },
+        {
+          color: "#883efd",
+          percent: 50
+        },
+        {
+          color: "#FF5800",
+          percent: 60
+        },
+        {
+          color: "#FF8100",
+          percent: 70
+        },
+        {
+          color: "#FEAC00",
+          percent: 80
+        },
+        {
+          color: "#FFCC00",
+          percent: 90
+        },
+        {
+          color: "#ff0000",
+          percent: 100
+        }
+      ],
+      animation_duration: 2000,
+      tick_on_color: '#f1594e',
+      cur_score_circle_color: '#ff5e52',
+      center_font_color: '#a0a0a0',
+      center_text_unit: '%',
+      "canvas": my_canvas_obj1
+    })
+
+    gauge1.render()
+    setTimeout(function(){
+      gauge1.updatePercent(65)
+      var point =document.getElementsByClassName('.point');
+    }, 100)
+
+    // var my_canvas_obj2= document.getElementById("gauge2");
+    // var gauge2 = new Gauge({
+    //   "tick_length": 12,
+    //   "large_tick_length": 22,
+    //   "tick_thickness": 1,
+    //   "tick_group_length": 9,
+    //   "ticks_groups_begin": 0,
+    //   "total_degrees": 150,
+    //   "total_tick": 101,
+    //   "tick_color": "#666",
+    //   "num_font_size": 18,
+    //   "percent": 0,
+    //   "center_font_size": 172,
+    //   tick_on_color: '#f1594e',
+    //   cur_score_circle_color: '#ff5e52',
+    //   center_font_color: '#ff5e52',
+    //   center_text_unit: '%',
+    //   animation_duration: 1000,
+    //   "canvas": my_canvas_obj2
+    // })
+    // gauge2.render(20)
+    // setTimeout(function(){
+    //   gauge2.updatePercent(60)
+    // }, 1000)
+  </script>
+</body>
+</html>
