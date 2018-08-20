@@ -32,24 +32,49 @@
         top:50%;
         left:10%;
         transition: linear all 2s;
-        animation: loading-rotate 2s linear;
-        transform:rotateZ(115deg);
+        /* animation: loading-rotate 2s linear; */
+        /* transform:rotateZ(115deg); */
       }
-      @-webkit-keyframes loading-rotate {
+      .point_30{
+         animation: rotate_30 2s linear;
+        transform:rotateZ(54deg);
+      }
+      .point_60{
+        animation: rotate_60 2s linear;
+        transform:rotateZ(108deg);
+      }
+      @-webkit-keyframes rotate_30 {
             from {
                 -webkit-transform: rotateZ(0deg);
             }
             to {
-                -webkit-transform: rotateZ(115deg);
+                -webkit-transform: rotateZ(54deg);
             }
         }
 
-        @keyframes loading-rotate {
+        @keyframes rotate_30 {
             from {
                 transform: rotateZ(0deg);
             }
             to {
-                transform: rotateZ(115deg);
+                transform: rotateZ(54deg);
+            }
+        }
+      @-webkit-keyframes rotate_60 {
+            from {
+                -webkit-transform: rotateZ(54deg);
+            }
+            to {
+                -webkit-transform: rotateZ(108deg);
+            }
+        }
+
+        @keyframes rotate_60 {
+            from {
+                transform: rotateZ(54deg);
+            }
+            to {
+                transform: rotateZ(108deg);
             }
         }
     </style>
@@ -58,8 +83,9 @@
   <!-- <div style="height:20px;background: linear-gradient(to right, #9ED110, #50B517, #8adec2, #08d9fb, #9f49ac, #f10cab, #FF3BA7, #FF5800, #FF8100, #FEAC00, #FFCC00, #EDE604)"></div> -->
   <div class="cavanns">
     <canvas width=510 height=510 id="gauge1"></canvas>
-    <div class="point" style="transform:translateZ(-65deg)"></div>
+    <div class="point point_30" style="transform:translateZ(-65deg)"></div>
   </div>
+  <button onclick="dd()">点击增加速度</button>
   <!-- <canvas width=510 height=510 id="gauge2"></canvas> -->
   <script src="./gauge.js"></script>
   <script>
@@ -76,7 +102,7 @@
       "num_font_size": 18,
       "percent": 0,
       "center_font_size": 172,
-      "circle_radius":10,
+      "circle_radius":0,
       "show_num": true,
       //"bg_color":"#fff",
       on_color_gradient: [
@@ -131,9 +157,15 @@
 
     gauge1.render()
     setTimeout(function(){
-      gauge1.updatePercent(65)
+      gauge1.updatePercent(30)
       var point =document.getElementsByClassName('.point');
     }, 100)
+    
+    function dd(){
+      console.log(document.getElementsByClassName('point'))
+      gauge1.updatePercent(60);
+      document.getElementsByClassName('point')[0].className='point point_60'
+    }
 
     // var my_canvas_obj2= document.getElementById("gauge2");
     // var gauge2 = new Gauge({

@@ -1,0 +1,70 @@
+body {
+    /* background-color: #2a2d31; */
+  }
+  .cavanns{
+    position: relative;
+  }
+  #gauge1,
+  #gauge2 {
+    background-color: #2a2d31;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .point{
+    width: 80%;
+    height: 1%;
+    /* //将定位的指针一半隐藏 */
+    background: -webkit-linear-gradient(right,transparent 50%,  #0e83f5 50%);
+    // background: -ms-linear-gradient(right, #0e83f5 0%,  transparent 60%);
+    // background: -moz-linear-gradient(right, #0e83f5 0%,  transparent 60%);
+    // background: linear-gradient(right, #0e83f5 0%,  transparent 60%);
+  
+  position: absolute;
+    top:50%;
+    left:10%;
+    transition: linear all 2s;
+    /* animation: loading-rotate 2s linear; */
+    /* transform:rotateZ(115deg); */
+  }
+  .point_30{
+     animation: rotate_30 2s linear;
+    transform:rotateZ(54deg);
+  }
+  .point_60{
+    animation: rotate_60 2s linear;
+    transform:rotateZ(108deg);
+  }
+  @-webkit-keyframes rotate_30 {
+        from {
+            -webkit-transform: rotateZ(0deg);
+        }
+        to {
+            -webkit-transform: rotateZ(54deg);
+        }
+    }
+
+    @keyframes rotate_30 {
+        from {
+            transform: rotateZ(0deg);
+        }
+        to {
+            transform: rotateZ(54deg);
+        }
+    }
+  @-webkit-keyframes rotate_60 {
+        from {
+            -webkit-transform: rotateZ(54deg);
+        }
+        to {
+            -webkit-transform: rotateZ(108deg);
+        }
+    }
+
+    @keyframes rotate_60 {
+        from {
+            transform: rotateZ(54deg);
+        }
+        to {
+            transform: rotateZ(108deg);
+        }
+    }

@@ -1,4 +1,5 @@
 /**
+ * created by limenghui
  * 绘制刻度盘
  * 配置参数
  * 颜色配置
