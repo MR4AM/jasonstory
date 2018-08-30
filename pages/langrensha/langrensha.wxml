@@ -1,0 +1,3 @@
+<view class="langrensha">
+    <view class='start' bindtap='selctaction'>点击抽取角色</view>
+</view>

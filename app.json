@@ -8,7 +8,8 @@
     "pages/gamecenter/gamecenter",
     "pages/spider/spider",
     "pages/luckturn/luckturn",
-    "pages/turntable/turntable"
+    "pages/turntable/turntable",
+    "pages/langrensha/langrensha"
   ],
   "window": {
     "backgroundTextStyle": "light",
