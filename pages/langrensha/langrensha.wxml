@@ -1,3 +1,14 @@
 <view class="langrensha">
-    <view class='start' bindtap='selctaction'>点击抽取角色</view>
+      <view class='start' bindtap='start'  wx:if="{{!rolelimit}}">开启标准8人局</view>
+    <view class='start' bindtap='maskShow'  wx:if="{{!rolelimit && start}}">请{{role}}号玩家抽取角色</view>
+     <view class='start' bindtap='maskShow'  wx:if="{{rolelimit && !end}}">法官查看玩家角色</view>
+    <view class="mask fade"   wx:if="{{maskstate}}"></view>
+    <view class="modal fade"  wx:if="{{maskstate}}">
+        <image src="{{src}}"></image>
+        <rich-text>{{dec ||'6666'}}</rich-text>
+        <button bindtap='changestate'>确认角色</button>
+    </view>
+    <view class='result' wx:if="{{end}}" wx:for="{{selectresult}}">
+        {{item}}
+    </view>
 </view>
