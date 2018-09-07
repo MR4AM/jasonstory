@@ -31,7 +31,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getuserInfo()
+    this.getuserInfo();
+    this.socketio();
   },
 
   /**
@@ -81,6 +82,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //socket连接
+  socketio(){
+    wx.connectSocket({
+      url: 'http://localhost:433'
+    })
+    wx.onSocketOpen(function (res) {
+      console.log('WebSocket连接已打开！')
+    })
   },
   //日期选择函数
   bindDateChange: function (e) {
