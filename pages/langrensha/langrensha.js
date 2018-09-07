@@ -18,7 +18,8 @@ Page({
     selectresult:[],//选择结果,
     end:false,//选人结束
     rolenum:'',//玩家人数
-    outarr:[],//淘汰玩家的数组
+    outarr:[],//淘汰玩家的数组,
+    outnum:0,//淘汰人数
   },
 
   //，，10人局4民3杀神3神，11人局4民3杀4神，12人局4民4杀4神
@@ -183,9 +184,59 @@ Page({
     })
   },
   out(e){
-    console.log(e.target.dataset.idx,'淘汰玩家的索引值');
-    this.data.outarr.push(this.data.role[e.target.dataset.idx]);
+    let that =this;
+    console.log(Number(e.target.dataset.item.slice(0, 1)),'淘汰玩家的索引值');
+    this.setData({
+      outnum:this.data.outnum+1
+    },()=>{
+      wx.showModal({
+        title: '玩家淘汰',
+        content: '确定淘汰' + Number(e.target.dataset.item.slice(0, 1))+'号玩家',
+        success: function (res) {
+          if(res.confirm){
+            console.log(666666)
+            that.data.outarr.push(e.target.dataset.item.slice(0, 4));
+            let outidx = Number(e.target.dataset.item.slice(0, 1));
+            that.data.selectresult.splice(outidx - that.data.outnum, 1);
+            that.setData({
+              selectresult: that.data.selectresult,
+            })
+            that.setData({
+              outarr: that.data.outarr
+            }, () => {
+              let tempstr = that.data.selectresult.join('');
+              //胜负规则
+              //民全死或神全死，狼人赢。狼人全死，平民方赢
+              if (tempstr.indexOf('平民') == -1) {
+                wx.showModal({
+                  title: '游戏结束',
+                  content: '平民全部淘汰，狼人赢',
+                  success: function (res) {
+                  }
+                })
+              } else if (tempstr.indexOf('守卫') == -1 && tempstr.indexOf('预言家') == -1 && tempstr.indexOf('女巫') == -1) {
+                wx.showModal({
+                  title: '游戏结束',
+                  content: '神全部淘汰，狼人赢',
+                  success: function (res) {
+                  }
+                })
+              } else if (tempstr.indexOf('狼人') == -1) {
+                wx.showModal({
+                  title: '游戏结束',
+                  content: '狼人全部淘汰，平民和神赢',
+                  success: function (res) {
+                  }
+                })
+              }
 
+              console.log(this.data.selectresult, '更新玩家存活')
+            })
+          }
+        }
+      })
+    })
+    
   },
   //随机打乱数组
   randomsort(a, b) {

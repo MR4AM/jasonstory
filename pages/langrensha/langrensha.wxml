@@ -12,7 +12,12 @@
         <rich-text>{{dec ||'6666'}}</rich-text>
         <button bindtap='changestate'>确认角色</button>
     </view>
-    <view class='result' wx:if="{{end}}" wx:for="{{selectresult}}" data-idx="{{index}}" bindtap='out'>
+    <view  wx:if="{{end}}">存活的玩家</view>
+    <view class='result' wx:if="{{end}}" wx:for="{{selectresult}}" data-idx="{{index}}" data-item="{{item}}" bindtap='out'>
+        {{item}}
+    </view>
+     <view  wx:if="{{end}}">淘汰的玩家</view>
+    <view class='result' wx:if="{{end}}" wx:for="{{outarr}}">
         {{item}}
     </view>
 </view>
