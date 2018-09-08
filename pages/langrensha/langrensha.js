@@ -185,56 +185,52 @@ Page({
   },
   out(e){
     let that =this;
-    console.log(Number(e.target.dataset.item.slice(0, 1)),'淘汰玩家的索引值');
-    this.setData({
-      outnum:this.data.outnum+1
-    },()=>{
-      wx.showModal({
-        title: '玩家淘汰',
-        content: '确定淘汰' + Number(e.target.dataset.item.slice(0, 1))+'号玩家',
-        success: function (res) {
-          if(res.confirm){
-            console.log(666666)
-            that.data.outarr.push(e.target.dataset.item.slice(0, 4));
-            let outidx = Number(e.target.dataset.item.slice(0, 1));
-            that.data.selectresult.splice(outidx - that.data.outnum, 1);
-            that.setData({
-              selectresult: that.data.selectresult,
-            })
-            that.setData({
-              outarr: that.data.outarr
-            }, () => {
-              let tempstr = that.data.selectresult.join('');
-              //胜负规则
-              //民全死或神全死，狼人赢。狼人全死，平民方赢
-              if (tempstr.indexOf('平民') == -1) {
-                wx.showModal({
-                  title: '游戏结束',
-                  content: '平民全部淘汰，狼人赢',
-                  success: function (res) {
-                  }
-                })
-              } else if (tempstr.indexOf('守卫') == -1 && tempstr.indexOf('预言家') == -1 && tempstr.indexOf('女巫') == -1) {
-                wx.showModal({
-                  title: '游戏结束',
-                  content: '神全部淘汰，狼人赢',
-                  success: function (res) {
-                  }
-                })
-              } else if (tempstr.indexOf('狼人') == -1) {
-                wx.showModal({
-                  title: '游戏结束',
-                  content: '狼人全部淘汰，平民和神赢',
-                  success: function (res) {
-                  }
-                })
-              }
-
-              console.log(this.data.selectresult, '更新玩家存活')
-            })
+    wx.showModal({
+      title: '玩家淘汰',
+      content: '今夜是否确定淘汰' + Number(e.target.dataset.item.slice(0, 1))+'号玩家',
+      success: function (res) {
+        if(res.confirm){
+          that.data.outarr.push(e.target.dataset.item.slice(0, 4));
+          //循坏淘汰玩家
+          for(var i=0;i<that.data.selectresult.length;i++){
+            if (that.data.selectresult[i].indexOf(e.target.dataset.item.slice(0, 1)) !=-1){
+              that.data.selectresult.splice(i, 1);
+              that.setData({
+                selectresult: that.data.selectresult,
+              })
+            }
           }
+          that.setData({
+            outarr: that.data.outarr
+          }, () => {
+            let tempstr = that.data.selectresult.join('');
+            //胜负规则
+            //民全死或神全死，狼人赢。狼人全死，平民方赢
+            if (tempstr.indexOf('平民') == -1) {
+              wx.showModal({
+                title: '游戏结束',
+                content: '平民全部淘汰，狼人赢',
+                success: function (res) {
+                }
+              })
+            } else if (tempstr.indexOf('守卫') == -1 && tempstr.indexOf('预言家') == -1 && tempstr.indexOf('女巫') == -1) {
+              wx.showModal({
+                title: '游戏结束',
+                content: '神全部淘汰，狼人赢',
+                success: function (res) {
+                }
+              })
+            } else if (tempstr.indexOf('狼人') == -1) {
+              wx.showModal({
+                title: '游戏结束',
+                content: '狼人全部淘汰，平民和神赢',
+                success: function (res) {
+                }
+              })
+            }
+          })
         }
-      })
+      }
     })
     
   },
@@ -243,16 +239,5 @@ Page({
     return Math.random() > .5 ? -1 : 1;
     //用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
   },
-  //两个数组相减
-  arrcount(arr1,arr2){
-    var arr3 = [];
-    return arr1.forEach((a) => {
-      let c = arr2.findIndex(b => a == b);
-      if (c > -1){
-        delete arr2[c];
-      }else{
-        arr3.push(a);}
-    });
-  }
 
 })
