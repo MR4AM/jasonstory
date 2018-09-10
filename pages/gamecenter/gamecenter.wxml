@@ -5,4 +5,5 @@
      <button bindtap='linkTo' data-url='../spider/spider'>谁是卧底</button>
      <!-- <button bindtap='linkTo' data-url='../luckturn/luckturn'>抽奖九宫格</button> -->
      <button bindtap='linkTo' data-url='../langrensha/langrensha'>狼人杀</button>
+      <button bindtap='linkTo' data-url='../dadishu/dadishu'>打地鼠</button>
  </view>

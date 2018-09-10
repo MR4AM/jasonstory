@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="index">
-    <view class='swiper'>
+  <view class='swiper'>
     <swiper 
       indicator-dots="{{indicatorDots}}"
       autoplay="{{autoplay}}" 
@@ -9,13 +9,14 @@
       indicator-color="{{color}}"
       indicator-active-color="{{coloractive}}"
       circular=true
+      previous-margin="90rpx" next-margin="90rpx" current="0" bindchange="swiperChange"
       >
-      <block wx:for="{{imgUrls}}"  wx:key="userInfoListId">
-        <swiper-item>
-          <image src="{{item}}" width="800" height="150"/>
+      <block wx:for="{{imgUrls}}"  wx:key="userInfoListId" wx:index="{{index}}">
+        <swiper-item class="swiper-item">
+          <image src="{{item}}" width="800" height="150" class="slide-image {{swiperIndex == index ? 'active' : ''}}" bindtap='prewimg' data-imgurl="{{item}}"/>
         </swiper-item>
       </block>
-  </swiper>
+    </swiper>
   </view>
   <view class='info'>
         <view class='usertab'>
@@ -43,8 +44,8 @@
   <view class='gamenews'>
       <view class='title'>游戏介绍</view>
       <block wx:for="{{news}}">
-        <view class='list'>
-           {{item}}
+        <view class='list' bindtap='todetail' data-url="{{item.url}}">
+           {{item.title}}
         </view>
       </block>
   </view>

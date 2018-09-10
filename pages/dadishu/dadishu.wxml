@@ -1,0 +1,21 @@
+<view class="dadishupage">
+    <button class='startgame' wx:if="{{!start}}" bindtap='readygame'>开始游戏</button>
+    <!-- <view class='contractme'>联系</view> -->
+</view>
+<!-- 倒计时遮罩开始 -->
+<view class='readymask' wx:if="{{start && !masknone}}">
+  <view class='title'>
+      <view>{{tips}}</view>
+      <view>{{count}}</view>
+  </view>
+</view>
+
+<!-- 进入游戏关卡 -->
+<view class='gamepage' wx:if="{{masknone}}" >
+  <view class='score'>你当前的分数为{{score}}</view>
+  <view  wx:for="{{12}}"class='holebox' wx:key="userInfoListId">
+  <view class='hole' catchtap='hitmice' data-hitidx='{{index}}' data-id="{{index}}">
+      <image src="../../images/dadishu/dishu.jpg" wx:if="{{activeidx==index}}"></image>
+  </view>
+</view>
+</view>

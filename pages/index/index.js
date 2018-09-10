@@ -29,7 +29,12 @@ Page({
    avatarUrl:'',
    weaherArr:[],
    videosrc:'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
-   news: ['狼人杀', '真心话大冒险', '谁是卧底', '大话骰']
+   news: [
+     {title:'狼人杀',url:'../barrage/barrage'},
+      {title:'真心话大冒险',url:''},
+      {title:'谁是卧底',url:''},
+      {title:'大话骰',url:''}
+      ]
  },
 
 
@@ -106,6 +111,25 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  todetail(e){
+    wx.redirectTo({
+      url: e.target.dataset.url
+    })
+  },
+  swiperChange(e) {
+    const that = this;
+    that.setData({
+      swiperIndex: e.detail.current,
+    })
+  },
+  //预览放大图片
+  prewimg(e){
+    // e.target.dataset 小程序传参对象
+    wx.previewImage({
+      current: e.target.dataset.imgurl,
+      urls: this.data.imgUrls && this.data.imgUrls
+    })
   },
   //日期选择函数
   bindDateChange:function(e){

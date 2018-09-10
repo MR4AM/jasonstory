@@ -9,7 +9,9 @@
     "pages/spider/spider",
     "pages/luckturn/luckturn",
     "pages/turntable/turntable",
-    "pages/langrensha/langrensha"
+    "pages/langrensha/langrensha",
+    "pages/barrage/barrage",
+    "pages/dadishu/dadishu"
   ],
   "window": {
     "backgroundTextStyle": "light",
