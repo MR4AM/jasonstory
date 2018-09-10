@@ -5,14 +5,16 @@
 <!-- 倒计时遮罩开始 -->
 <view class='readymask' wx:if="{{start && !masknone}}">
   <view class='title'>
-      <view>{{tips}}</view>
-      <view>{{count}}</view>
+      <view class='tips'>{{tips}}</view>
+      <view class='count'>{{count}}</view>
+      <view wx:if="{{pauge}}" class='nextstate' bindtap='tonextstate'>下一关</view>
   </view>
 </view>
 
 <!-- 进入游戏关卡 -->
-<view class='gamepage' wx:if="{{masknone}}" >
-  <view class='score'>你当前的分数为{{score}}</view>
+<view class='gamepage' wx:if="{{masknone || pause}}" >
+  <view class='score'>你第{{gamestate}}关当前的分数为{{score}}</view>
+   <view class='score'>本关剩余{{gamecountdown}}s</view>
   <view  wx:for="{{12}}"class='holebox' wx:key="userInfoListId">
   <view class='hole' catchtap='hitmice' data-hitidx='{{index}}' data-id="{{index}}">
       <image src="../../images/dadishu/dishu.jpg" wx:if="{{activeidx==index}}"></image>

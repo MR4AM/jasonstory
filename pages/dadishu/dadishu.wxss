@@ -6,11 +6,11 @@
   transform: translate(-50%,-50%);
 }
 .readymask{
-  position: relative;
+  position:absolute;
   width: 100%;
   height: 1000px;
   background: #000;
-  opacity: .9;
+  opacity: .6;
   z-index: 100;
   color:#fff;
 }
@@ -39,4 +39,19 @@
   top:50%;
   transform: translate(-50%,-50%);
   border-radius:50%;
+}
+.nextstate{
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 10px;
+  border: 1px solid #fff;
+}
+.tips,.count{
+   width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 10px;
 }
