@@ -94,7 +94,7 @@ Page({
               gamestate:1,
               pauge: true,
               masknone: false,
-              tips: '很遗憾，你在规定时间内没有打到对应分数',
+              tips:'很遗憾，你在规定时间内没有打到对应分数',
               count: '',
               btntext:'再来一局',
               score: 0
