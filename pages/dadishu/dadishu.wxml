@@ -1,4 +1,5 @@
 <view class="dadishupage">
+     <image src="../../images/dadishu/dishu.jpg"></image>
     <button class='startgame' wx:if="{{!start}}" bindtap='readygame'>开始游戏</button>
     <!-- <view class='contractme'>联系</view> -->
 </view>

@@ -5,6 +5,15 @@
   left:50%;
   transform: translate(-50%,-50%);
 }
+.dadishupage image{
+  position: absolute;
+  top:30%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 150px;
+  height: 150px;
+  border-radius:50%; 
+}
 .readymask{
   position:absolute;
   width: 100%;
