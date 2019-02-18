@@ -7,9 +7,8 @@ Page({
     },3000)
   },
   bindbt: function () {
-    // doommList.push(new Doomm("Lsy教师节快乐", Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 10), getRandomColor()));
     for(var i=0;i<10;i++){
-      doommList.push(new Doomm("Lsy教师节快乐", Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 20), getRandomColor()));
+      doommList.push(new Doomm("希望你每天能开心", Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 20), getRandomColor()));
       this.setData({
         doommData: doommList
       })
